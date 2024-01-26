@@ -121,14 +121,14 @@ export default function Page() {
 
 
 
-        <div style={{ visibility: isStarted ? "hidden" : "visible" }} className="loading">
+        <div style={{ display: isStarted ? "none" : "flex" }} className="loading">
           <h1>Été 90</h1>
           <button onMouseDown={handleStart}>Start</button>
         </div>
 
 
         <input
-          style={{ visibility: isStarted ? 'visible' : 'hidden' }}
+          style={{ display: isStarted ? 'block' : 'none' }}
           className='absolute range l'
           type="range"
           min={0}
