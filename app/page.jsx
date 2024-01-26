@@ -139,7 +139,7 @@ export default function Page() {
         />
         <View orbit={false} className='relative h-full  sm:w-full'>
           <Suspense fallback={null}>
-            <Scene2 tlr={tlRef} click={countClick} />
+            <Scene2 tlr={tlRef} click={countClick} isStarted={isStarted} />
             <Common color={'#ffffff'} />
           </Suspense>
         </View>

@@ -35,6 +35,7 @@ import birds from '../../../public/sound/birds.wav'
 import sea from '../../../public/sound/sea.mp3'
 import ambient from '../../../public/sound/ete90.wav'
 import { MathUtils } from 'three';
+import { is } from '@react-three/fiber/dist/declarations/src/core/utils';
 
 
 export const Scene = ({ tlr, click }) => {
@@ -75,6 +76,14 @@ export const Scene = ({ tlr, click }) => {
   //change colorencoding
   const tl = GSAP.timeline({ paused: true });
 
+  useEffect(() => {
+    if (isStarted) {
+      if (ambientRef.current) {
+        ambientRef.current.setVolume(0.5)
+        ambientRef.current.play()
+      }
+    }
+  }, [isStarted])
   useEffect(() => {
     tlr.current = tl;
 
