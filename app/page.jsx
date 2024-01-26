@@ -137,7 +137,7 @@ export default function Page() {
           step={0.01}
           onChange={handleRangeChange}
         />
-        <View orbit={true} className='relative h-full  sm:w-full'>
+        <View orbit={false} className='relative h-full  sm:w-full'>
           <Suspense fallback={null}>
             <Scene2 tlr={tlRef} click={countClick} isStarted={isStarted} />
             <Common color={'#ffffff'} />
