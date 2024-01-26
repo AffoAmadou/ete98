@@ -35,13 +35,21 @@ import birds from '../../../public/sound/birds.wav'
 import sea from '../../../public/sound/sea.mp3'
 import ambient from '../../../public/sound/ete90.wav'
 import { MathUtils } from 'three';
-import { is } from '@react-three/fiber/dist/declarations/src/core/utils';
 
 
-export const Scene = ({ tlr, click }) => {
+
+export const Scene = ({ tlr, click, isStarted }) => {
   const sphereRef = useRef();
   const topRef = useRef();
   const bottomRef = useRef();
+
+  const topMontagneRef = useRef()
+  const topCigaretteRef = useRef()
+  const topMedalRef = useRef()
+  const topUmbrellaRef = useRef()
+
+  const keyBottomRef = useRef()
+
 
   const sound1Ref = useRef();
   const sound2Ref = useRef();
@@ -75,6 +83,8 @@ export const Scene = ({ tlr, click }) => {
 
   //change colorencoding
   const tl = GSAP.timeline({ paused: true });
+  const loopTl = GSAP.timeline({ repeat: -1 });
+  const loopCig = GSAP.timeline({ repeat: -1 });
 
   useEffect(() => {
     if (isStarted) {
@@ -110,11 +120,49 @@ export const Scene = ({ tlr, click }) => {
       sound2Ref.current.setRolloffFactor(4)
     }
 
+    loopTl.to(topMedalRef.current.scale, {
+      duration: 5,
+      y: 2,
+      x: 2,
+      z: 2,
+    }).to(topMedalRef.current.scale, {
+      duration: 5,
+      y: 2.2,
+      x: 2.2,
+      z: 2.2
+    })
+
+    loopCig.to(topCigaretteRef.current.rotation, {
+      duration: 30,
+      z: "+=" + 1 / Math.PI * 2,
+    })
+
+    // loopTl.to(topMedalRef.current.position, {
+    //   duration: 4,
+    //   y: 0,
+    //   x: -1,
+    //   z: 0,
+    // }, 0).to(topMedalRef.current.position, {
+    //   duration: 4,
+    //   y: 0,
+    //   x: -1,
+    //   z: 1,
+    // })
+
+
+
 
     tl.to(sphereRef.current.rotation, {
       duration: 2.5,
       z: "+=" + Math.PI,
     }, 0)
+      .to(topCigaretteRef.current.position, {
+        duration: 4,
+        y: click ? 0 : 1,
+        x: click ? -1 : -2,
+        z: 2,
+      }, 0)
+
 
     tl.to(topRef.current.scale, {
       duration: 5.5,
@@ -169,7 +217,7 @@ export const Scene = ({ tlr, click }) => {
 
         <group transparent position={[0, 0, 0]} ref={bottomRef}>
 
-          <mesh scale={[2.2, 2.2, 2.2]} position={[0, -1, 0]} >
+          <mesh ref={topMontagneRef} scale={[2.2, 2.2, 2.2]} position={[0, -1, 0]} >
             <planeGeometry args={[2, 1.2, 1]} />
             <meshStandardMaterial transparent map={montagneTexture} />
           </mesh>
@@ -198,12 +246,12 @@ export const Scene = ({ tlr, click }) => {
             <meshStandardMaterial transparent map={waterTexture} />
           </mesh>
 
-          <mesh position={[0, -1, 0]} scale={[2.2, 2.2, 2.2]} >
+          <mesh ref={topUmbrellaRef} position={[0, -1, 0]} scale={[2.2, 2.2, 2.2]} >
             <planeGeometry args={[2, 1.2, 1]} />
             <meshStandardMaterial transparent map={umbrellaTexture} />
           </mesh>
 
-          <mesh position={[0, -1, 1]} scale={[2.2, 2.2, 2.2]} >
+          <mesh ref={topCigaretteRef} position={[0, -1, 1]} scale={[2.2, 2.2, 2.2]} >
             <planeGeometry args={[2, 1.2, 1]} />
             <meshStandardMaterial transparent map={cigaretteTexture} />
           </mesh>
@@ -213,7 +261,7 @@ export const Scene = ({ tlr, click }) => {
             <meshStandardMaterial transparent map={chairTexture} />
           </mesh>
 
-          <mesh position={[0, -1, 1]} scale={[2.2, 2.2, 2.2]} >
+          <mesh ref={topMedalRef} position={[0, -1, 1]} scale={[2.2, 2.2, 2.2]} >
             <planeGeometry args={[2, 1.2, 1]} />
             <meshStandardMaterial transparent map={medalTexture} />
           </mesh>

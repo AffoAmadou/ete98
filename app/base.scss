@@ -1,18 +1,18 @@
 .scene {
-  width : 100%;
+  width: 100%;
   height: 100vh;
 
   position: absolute;
 }
 
 .btn-rot {
-  z-index         : 9999;
+  z-index: 9999;
   background-color: lightcoral;
 
   top: 30rem;
 
-  padding    : 2rem 3rem;
-  color      : white;
+  padding: 2rem 3rem;
+  color: white;
   font-weight: bold;
 
   &:hover {
@@ -23,10 +23,10 @@
 }
 
 .range {
-  z-index  : 9999999;
-  top      : 50rem;
+  z-index: 9999999;
+  top: 50rem;
   transform: rotate(90deg);
-  right    : 0;
+  right: 0;
 }
 
 .left {
@@ -35,82 +35,82 @@
 
 .navigation__wrapper {
   position: fixed;
-  bottom  : 0;
-  left    : 35%;
-  width   : 40rem;
-  height  : 20rem;
+  bottom: 0;
+  left: 35%;
+  width: 40rem;
+  height: 20rem;
 
   z-index: 999999;
 
-  border                 : solid 1px red;
+  border: solid 1px red;
   border-top-right-radius: 35rem;
-  border-top-left-radius : 35rem;
+  border-top-left-radius: 35rem;
 }
 
 .btn-next {
   z-index: 9999;
-  right  : 0;
-  top    : 30rem;
+  right: 0;
+  top: 30rem;
 
-  padding         : 2rem 3rem;
+  padding: 2rem 3rem;
   background-color: #EBEBD3;
-  color           : #083D77;
-  font-weight     : bold;
+  color: #2563eb;
+  font-weight: bold;
 
   &:hover {
-    color           : #EBEBD3;
-    background-color: #083D77;
-    transition      : transform 0.7s ease-in-out;
+    color: #EBEBD3;
+    background-color: #2563eb;
+    transition: transform 0.7s ease-in-out;
   }
 }
 
 .btn-prev {
   z-index: 9999;
-  left   : 0;
-  top    : 30rem;
+  left: 0;
+  top: 30rem;
 
-  padding         : 2rem 3rem;
+  padding: 2rem 3rem;
   background-color: #EBEBD3;
-  color           : #083D77;
-  font-weight     : bold;
-  font-size       : 1.1rem;
+  color: #2563eb;
+  font-weight: bold;
+  font-size: 1.1rem;
 
   &:hover {
-    color           : #EBEBD3;
-    background-color: #083D77;
-    transition      : transform 0.7s ease-in-out;
+    color: #EBEBD3;
+    background-color: #2563eb;
+    transition: transform 0.7s ease-in-out;
   }
 }
 
 .loading {
-  position        : fixed;
-  z-index         : 999999;
-  background-color: #083D77;
-  color           : #EBEBD3;
-  width           : 100%;
-  height          : 100vh;
+  position: fixed;
+  z-index: 999999;
+  background-color: #2563eb;
+  color: #EBEBD3;
+  width: 100%;
+  height: 100vh;
 
-  display        : flex;
-  flex-direction : column;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items    : center;
+  align-items: center;
 
   gap: 3rem;
 
   button {
-    padding         : 1.2rem 3rem;
+    padding: 1.2rem 3rem;
     background-color: #EBEBD3;
-    width           : fit-content;
-    height          : fit-content;
+    width: fit-content;
+    height: fit-content;
 
-    color        : #083D77;
+    color: #2563eb;
     border-radius: 2rem;
-    font-weight  : bold;
+    font-weight: bold;
   }
 
   h1 {
-    font-size  : 7rem;
+    font-size: 7rem;
     font-weight: bold;
-    color      : #FE9000;
+    color: white;
   }
 }
